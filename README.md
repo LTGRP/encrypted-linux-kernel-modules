@@ -21,11 +21,10 @@ kernel-3.10.0-1127.18.2.el7.x86_64
 
 ### Prepare build environment
 ```
-sudo yum install glibc-static -y
-sudo yum install kernel-devel -y
-sudo yum install kernel-headers -y
-sudo yum install openssl-devel -y
-sudo yum install libcurl-devel -y
+# Become root
+sudo su -
+# Install packages via yum 
+yum install glibc-static kernel-devel kernel-headers openssl-devel libcurl-devel -y
 ```
 
 
@@ -39,7 +38,7 @@ The test script performs 4 tests:
 
 ```
 $ make
-$ sudo ./test.sh
+$ ./test.sh
 make -C /lib/modules/3.10.0-1127.13.1.el7.x86_64/build M=/home/test/encrypted-kernel-modules clean
 make[1]: Entering directory `/usr/src/kernels/3.10.0-1127.13.1.el7.x86_64'
   CLEAN   /home/test/encrypted-kernel-modules/.tmp_versions
